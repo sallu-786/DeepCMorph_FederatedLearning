@@ -28,7 +28,7 @@ class DeepCMorphClient(fl.client.NumPyClient):
         self.model = model
         self.train_loader = train_loader
         self.test_loader = test_loader
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device("cpu")
         self.model.to(self.device)
         self.metrics = defaultdict(list)
 
