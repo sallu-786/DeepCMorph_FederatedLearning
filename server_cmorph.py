@@ -29,7 +29,7 @@ def set_random_seed(seed=42):
 
 def main() :
     set_random_seed(42)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
     
     # Initialize DeepCMorph model
     model = DeepCMorph(num_classes=NUM_CLASSES)  # Initialize the model
