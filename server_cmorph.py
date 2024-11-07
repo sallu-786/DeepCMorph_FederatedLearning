@@ -69,7 +69,7 @@ def get_evaluate_fn(model, device):
     test_transforms = transforms.Compose([
         transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),  
         transforms.ToTensor(),
-        # transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])           find mean and std deviation values for this data first then use it
+       # transforms.Normalize(mean=[0.729, 0.513, 0.715], std=[0.177, 0.236, 0.175])           #find mean and std deviation values for each dataset seperately do no copy paste
     ])
     
     val_dataset = datasets.ImageFolder(PATH_TO_TEST_DATASET, transform=test_transforms)
