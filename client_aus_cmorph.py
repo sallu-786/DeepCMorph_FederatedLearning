@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 import csv
 from collections import defaultdict
-from model import DeepCMorph  
+from model_ENb0 import DeepCMorph
 
 
 NUM_CLASSES = 9
@@ -161,7 +161,7 @@ def main() -> None:
     
     # Initialize model
     model = DeepCMorph(num_classes=NUM_CLASSES)
-    model.load_weights(dataset="CRC")                    #INST3: First try without loading any weights, then uncomment this line for loading weights of relevant dataset    
+    # model.load_weights(dataset="CRC")                    #INST3: First try without loading any weights, then uncomment this line for loading weights of relevant dataset    
 
     train_loader, test_loader = load_data()
 
