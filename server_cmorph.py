@@ -11,8 +11,8 @@ from torchvision import datasets, transforms
 from tqdm import tqdm
 import os
 from sklearn.metrics import balanced_accuracy_score
-from model import DeepCMorph  
-
+# from model import DeepCMorph  
+from model_ENb0 import DeepCMorph
 # Constants
 NUM_CLASSES = 9
 BATCH_SIZE = 32
@@ -29,11 +29,11 @@ def set_random_seed(seed=42):
 
 def main() :
     set_random_seed(42)
-    device = torch.device("cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     # Initialize DeepCMorph model
     model = DeepCMorph(num_classes=NUM_CLASSES)  # Initialize the model
-    model.load_weights(dataset="CRC")                                                   #load weights
+    # model.load_weights(dataset="CRC")                                                   #load weights
    
    
    
@@ -69,7 +69,7 @@ def get_evaluate_fn(model, device):
     test_transforms = transforms.Compose([
         transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),  
         transforms.ToTensor(),
-        # transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])           find mean and std deviation values for this data first then use it
+       # transforms.Normalize(mean=[0.729, 0.513, 0.715], std=[0.177, 0.236, 0.175])           #find mean and std deviation values for each dataset seperately do no copy paste
     ])
     
     val_dataset = datasets.ImageFolder(PATH_TO_TEST_DATASET, transform=test_transforms)
