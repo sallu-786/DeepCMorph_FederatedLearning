@@ -11,8 +11,8 @@ from torchvision import datasets, transforms
 from tqdm import tqdm
 import os
 from sklearn.metrics import balanced_accuracy_score
-from model import DeepCMorph  
-
+# from model import DeepCMorph  
+from model_ENb0 import DeepCMorph
 # Constants
 NUM_CLASSES = 9
 BATCH_SIZE = 32
@@ -33,7 +33,7 @@ def main() :
     
     # Initialize DeepCMorph model
     model = DeepCMorph(num_classes=NUM_CLASSES)  # Initialize the model
-    model.load_weights(dataset="CRC")                                                   #load weights
+    # model.load_weights(dataset="CRC")                                                   #load weights
    
    
    
